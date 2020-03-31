@@ -28,12 +28,24 @@ window.addEventListener("load",() => {
     }
 
     document.getElementById("park-load").innerHTML += data; 
-    document.getElementById("available-amount").innerHTML = "Total Available: "+totalAvailable+" slots";
+    document.getElementById("available-amount").innerHTML = "Total Available: "+totalAvailable+" Slots";
     document.getElementById("date-now").innerHTML = date;
 
 });
 
-// Show Booking Data
-function slotData(id){
 
+// Show Booking Data
+function slotData(){
+    
+}
+
+// QR Code Generator
+function generateQr(id){
+    var QRCode = require('qrcode');
+    var canvas = document.getElementById(id);
+    
+    QRCode.toCanvas(canvas, 'sample text', function (error) {
+    if (error) console.error(error)
+        console.log('success!');
+    })
 }

@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard</title>
+    <title>Parking Map</title>
 
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/custom.css">
-    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/jquery-3.3.1.slim.min.js"></script>
     <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/park.js"></script>
+
 </head>
 
 <body class="bg-style1">
-    
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand mr-auto text-info font-weight-bold" href="#">EZPark</a>
         <div class="justify-content-end">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="parking.html">Parking</a>
+                    <a class="nav-link" href="index.html">Parking</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="register.html">Sign Up</a>
@@ -29,6 +32,68 @@
         </div>
     </nav>
 
+    <!-- Card -->
+    <div class="card bg-light m-4 p-2">
+        <div class="card-header">
+            <div class="h4 text-center text-info font-weight-bold">Parking Map</div>
+            <select id="location">
+                <option value="no-select" selected>Select Location</option>
+                <option value="mall-ciputra">Mall Ciputra</option>
+                <option value="mall-taman-anggrek">Mall Taman Anggrek</option>
+            </select>
+            <div class="h3 text-right text-primary" id="available-amount"></div>
+        </div>
+        
+        <div class="card-body">
+            <div class="row" id="park-load" >
+                <!-- Load Data -->
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <b class="text-primary" id="date-now"></b>
+        </div>
+
+    </div>
+
+    <!-- Card -->
+    <div class="card bg-light m-4 p-2">
+        <div class="card-header bg-primary">
+            <div class="h5 text-center text-white">Booking</div>
+        </div>
+        
+        <div class="card-body">
+            <div class="form-group">
+                <label for="input-book-number">Input Booking Number</label>
+                <input type="text" class="form-control" id="input-book-number" placeholder="Booking Number">
+            </div>
+        </div>
+
+        <div class="card-footer text-center">
+            <button class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModalLong">Get Booking Ticket</button>
+        </div>
+    </div>
+
+ <!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="text-primary text-center">Loading...</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-lg btn-block">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
+
 </html>
