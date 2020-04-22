@@ -1,0 +1,18 @@
+{
+  "name": "ez-park",
+  "version": "1.0.0",
+  "description": "",
+  "main": "barcode.js",
+  "dependencies": {
+    "html5-fs": "^0.1.1",
+    "jsbarcode": "^3.11.0",
+    "qrcode": "^1.4.4",
+    "sql-wasm": "^1.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

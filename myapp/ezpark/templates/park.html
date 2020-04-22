@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Parking Map</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    
+    <script src="{% static 'jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+
+</head>
+
+<body class="bg-style1">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand mr-auto text-info font-weight-bold" href="../index.html">EZPark</a>
+
+        <div class="justify-content-end">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="">List Booking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Parking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="sign-out">Sign Out</a>
+                </li>
+            </ul>    
+        </div>
+    </nav>
+
+    <!-- Card -->
+    <div class="card bg-light m-4 p-2">
+        <div class="card-header">
+            <div class="h4 text-center text-info font-weight-bold">Parking Map</div>
+            <select id="location">
+                <option value="no-select" selected>Select Location</option>
+                <option value="mall-ciputra">Mall Ciputra</option>
+                <option value="mall-taman-anggrek">Mall Taman Anggrek</option>
+            </select>
+            <div class="h3 text-right text-primary" id="available-amount"></div>
+        </div>
+        
+        <div class="card-body">
+            <div class="row" id="park-load" >
+                <!-- Load Data -->
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <b class="text-primary" id="date-now"></b>
+        </div>
+
+    </div>
+
+    <!-- Card -->
+    <div class="card bg-light m-4 p-2">
+        <div class="card-header bg-primary">
+            <div class="h5 text-center text-white" id="book-form">Booking Form</div>
+        </div>
+        
+        <div class="card-body" id="book-summary"></div>
+    </div>
+
+</body>
+
+<script src="../assets/js/frontend/park.js"></script>
+<!-- <script src="../dist/bundle.js"></script> -->
+
+
+</html>
