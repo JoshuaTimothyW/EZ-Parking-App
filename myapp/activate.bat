@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=E:\Joshua\Semester 6\Workspace\Python\Django Project\django"
+set "VIRTUAL_ENV=E:\Joshua\Semester 6\Workspace\Python\Django Project\EZ-Parking-App\django"
 
 if not defined PROMPT (
     set "PROMPT=$P$G"

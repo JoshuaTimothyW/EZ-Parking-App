@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse as response, HttpResponseRedirect as redirect
+from django.contrib.auth.hashers import make_password, check_password
 from ezpark.models import User
-import bcrypt, json
 
 # Create your views here.
 
@@ -23,6 +23,9 @@ def login(request):
 # Parking Page
 def park(request):
 
+    if request.session.get("id") == None:
+        return redirect("/login/")
+
     return render(request,"park.html")
 
 # Hello Page
@@ -32,15 +35,11 @@ def hello(request):
 
 def addUser(request):
 
-    salt = bcrypt.gensalt()
-    new_pass = request.POST["pass"].encode('utf-8')
-    hashed = bcrypt.hashpw(new_pass,salt)
-
     new_user = User(
         name=request.POST["name"],
         email=request.POST["email"],
         phone=request.POST["phone"],
-        password=hashed,
+        password=make_password(request.POST["pass"]),
     )
 
     new_user.save()
@@ -54,21 +53,19 @@ def loginUser(request):
     if(not get_user.exists()):
         return render(request,"login.html",{"err_msg":"This email is not registered yet"})
     else:
-        salt = bcrypt.gensalt()
-        new_pass = request.POST["pass"].encode('utf-8')
-        hashed = bcrypt.hashpw(new_pass,salt)
 
-        if (hashed,get_user[0].password):
+        if check_password(request.POST["pass"],get_user[0].password):
             request.session["id"] = get_user[0].id
             return render(request,"park.html",{"curr_user":get_user[0]})
 
     # return response(get_user.count())
-    return render(request,"login.html",{"err_msg":"wrong email or password"})
+    return render(request,"login.html",{"err_msg":"Wrong email or password"})
 
 def logout(request):
     try:
         del request.session['id']
-    except expression as identifier:
+    except:
         pass
-    return response("you are logout")
+        
+    return redirect("/login/")
     

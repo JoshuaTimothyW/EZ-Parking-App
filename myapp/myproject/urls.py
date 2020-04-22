@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 
-from ezpark.views import hello, dashboard, register, login, park, addUser, loginUser
+from ezpark.views import hello, dashboard, register, login, park, addUser, loginUser, logout
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +28,7 @@ urlpatterns = [
     path('hello/',hello,name='hello'),
     path('register/submit',addUser,name="addUser"),
     path('login/submit',loginUser,name="loginUser"),
+    path('logout/',logout,name="logout"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
