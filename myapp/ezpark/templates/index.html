@@ -4,92 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Parking Map</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    
-    <script src="{% static 'jquery-3.3.1.slim.min.js' %}"></script>
-    <script src="{% static 'popper.min.js' %}"></script>
-    <script src="{% static 'bootstrap.min.js' %}"></script>
-    
+    <title>Ez-Park - Dashboard</title>
+    {% include "base.html" %}
 </head>
 
 <body class="bg-style1">
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand mr-auto text-info font-weight-bold" href="#">EZPark</a>
+        <b class="navbar-brand mr-auto text-info font-weight-bold">Ez-Park</b>
+
         <div class="justify-content-end">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Parking</a>
+                    <a class="nav-link" href="/register/" id="sign-out">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="register.html" id="sign-out">Sign Out</a>
+                    <a class="nav-link" href="/login/" id="sign-out">Login</a>
                 </li>
             </ul>    
         </div>
     </nav>
+    
 
-    <!-- Card -->
-    <div class="card bg-light m-4 p-2">
-        <div class="card-header">
-            <div class="h4 text-center text-info font-weight-bold">Parking Map</div>
-            <select id="location">
-                <option value="no-select" selected>Select Location</option>
-                <option value="mall-ciputra">Mall Ciputra</option>
-                <option value="mall-taman-anggrek">Mall Taman Anggrek</option>
-            </select>
-            <div class="h3 text-right text-primary" id="available-amount"></div>
-        </div>
-        
-        <div class="card-body">
-            <div class="row" id="park-load" >
-                <!-- Load Data -->
-            </div>
-        </div>
-
-        <div class="card-footer">
-            <b class="text-primary" id="date-now"></b>
-        </div>
-
+    <div id="msg-animated" class="text-center h2">   
+        <b class="">Welcome To</b><br>
+        <b class="">EZ-Park</b><br>
+        <b class="">Give you ease find parking area</b>
     </div>
-
-    <!-- Card -->
-    <div class="card bg-light m-4 p-2">
-        <div class="card-header bg-primary">
-            <div class="h5 text-center text-white">Booking Form</div>
-        </div>
-        
-        <div class="card-body" id="book-summary"></div>
-    </div>
-
- <!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <div class="text-primary text-center">Loading...</div>
-            <canvas id="qr-result"></canvas>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary btn-lg btn-block">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
+    
 </body>
+<script>
+    $("msg-animated").animate(() => {
 
-<script src="./assets/js/park.js"></script>
-<!-- <script src="../dist/bundle.js"></script> -->
+    })
+</script>
 
 
 </html>

@@ -1,39 +1,71 @@
-from django.shortcuts import render, HttpResponse as response, HttpResponseRedirect as redirect
+from django.shortcuts import render, HttpResponse as response, redirect
 from django.contrib.auth.hashers import make_password, check_password
-from ezpark.models import User
+from ezpark.models import User, Mall, BookList
+import pyqrcode, json
 
-# Create your views here.
+# Validating User
+def has_session(request):
+    
+    if request.session.get("id") == None and request.method == "GET":
+        return False
 
-# Dashboard Page
-def dashboard(request):
-    # list_arr = ["apple","orange","pear"]
-    list_user = User.objects.all()
+    return True
 
-    return render(request,"test.html",{"list_arr":list_user})
+# Generate QR
+def generate_qr(obj):
+
+    url = pyqrcode.create(obj)
+    url.png('url.png', scale=8)
+
+###########################################################
+
+
+# Main Page
+def index(request):
+    return render(request,"index.html")
+
 
 # Register Page
 def register(request):
 
     return render(request,"register.html")
 
+
 # Login Page
-def login(request):
+def login(request,):
     return render(request,"login.html",{"err_msg":""})
 
+
 # Parking Page
-def park(request):
+def park(request,location,floor):
+    real_location = location.replace("-"," ").title()
 
-    if request.session.get("id") == None:
-        return redirect("/login/")
+    max_slot = Mall.objects.filter(name=real_location,floor=floor)
 
-    return render(request,"park.html")
+    # list_booked_slot = BookList.objects.filter(location=real_location,floor=floor)
 
-# Hello Page
-def hello(request):
-    text = '<h1>welcome to my app!</h1>'
-    return response(text)
+    return response(max_slot.count())
 
-def addUser(request):
+    # obj = {
+    #     "list_booked":list_booked_slot,
+    #     ""
+    # }
+
+    # return render(request,"park.html",obj)
+
+
+
+# Dashboard Page
+def dashboard(request):
+    
+    if(request.session.get("id") != None):
+        return render(request,"dashboard.html")
+    else:
+        redirect("/")
+
+
+# After Submit Register
+def add_user(request):
 
     new_user = User(
         name=request.POST["name"],
@@ -44,8 +76,13 @@ def addUser(request):
 
     new_user.save()
     
-    return response("new user added!")
+    get_user = User.objects.filter(email=request.POST["email"])
+    request.session["id"] = get_user[0].id
+    return redirect("/dashboard/")
 
+
+
+# After Submit Login
 def loginUser(request):
 
     get_user = User.objects.filter(email=request.POST["email"])
@@ -56,16 +93,18 @@ def loginUser(request):
 
         if check_password(request.POST["pass"],get_user[0].password):
             request.session["id"] = get_user[0].id
-            return render(request,"park.html",{"curr_user":get_user[0]})
+            return redirect("/dashboard/")
+            # return render(request,"dashboard.html",{"curr_user":get_user})
+        else:
+            return render(request,"login.html",{"err_msg":"Wrong email or password"})
 
-    # return response(get_user.count())
-    return render(request,"login.html",{"err_msg":"Wrong email or password"})
 
+
+# After logout
 def logout(request):
     try:
         del request.session['id']
     except:
         pass
         
-    return redirect("/login/")
-    
+    return redirect("/")

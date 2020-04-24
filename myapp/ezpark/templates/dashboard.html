@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Parking Map</title>
+    {% load static %}
+    {% include "base.html" %}
+    
+    {% include "navbar.html" %}
+</head>
+
+<body class="">
+    <div class="h2 text-center text-primary">Place You Might Be Want To Choose</div>
+    <br>
+    <div class="container">
+        <div class="row">
+                <a href="/park/Central-Park/1/">
+                    <div class="card mx-2">
+                        <div class="card-header">
+                            <img src="{% static 'img/cp.jpg' %}" height="200" width="200">
+                        </div>
+                        <div class="card-body">
+                                <b class="text-center text-secondary h4">
+                                    Central Park
+                                </b>
+                        </div>
+                    </div>
+                </a>
+               
+                <div class="card mx-2">
+                    <div class="card-header">
+                        <img src="{% static 'img/ta.jpg' %}" height="200" width="200">
+                    </div>
+                    <div class="card-body">
+                            <b class="text-center text-secondary h4">
+                                Taman Anggrek
+                            </b>
+                    </div>
+                </div>
+                <div class="card mx-2">
+                    <div class="card-header">
+                        <img src="{% static 'img/ep.jpg' %}" height="200" width="200">
+                    </div>
+                    <div class="card-body">
+                            <b class="text-center text-secondary h4">
+                                Emporium Pluit
+                            </b>
+                    </div>
+                </div>
+                <div class="card mx-2">
+                    <div class="card-header">
+                        <img src="{% static 'img/pv.jpg' %}" height="200" width="200">
+                    </div>
+                    <div class="card-body">
+                            <b class="text-center text-secondary h4">
+                                    Pluit Village
+                            </b>
+                    </div>
+                </div>
+        </div>
+        <br>
+        <div class="row">
+                <div class="card mx-2">
+                    <div class="card-header">
+                        <img src="{% static 'img/pj.jpg' %}" height="200" width="200">
+                    </div>
+                    <div class="card-body">
+                            <b class="text-center text-secondary h4">
+                                    Pluit Junction
+                            </b>
+                    </div>
+                </div>
+                <div class="card mx-2">
+                    <div class="card-header">
+                        <img src="{% static 'img/bw.jpg' %}" height="200" width="200">
+                    </div>
+                    <div class="card-body">
+                            <b class="text-center text-secondary h4">
+                                    Bay Walk
+                            </b>
+                    </div>
+                </div>
+                <div class="card mx-2">
+                    <div class="card-header">
+                        <img src="{% static 'img/gi.jpg' %}" height="200" width="200">
+                    </div>
+                    <div class="card-body">
+                            <b class="text-center text-secondary h4">
+                               Grand Indonesia
+                            </b>
+                    </div>
+                </div>
+                <div class="card mx-2">
+                    <div class="card-header">
+                        <img src="{% static 'img/ns.jpg' %}" height="200" width="200">
+                    </div>
+                    <div class="card-body">
+                            <b class="text-center text-secondary h4">
+                                Neo Soho
+                            </b>
+                    </div>
+                </div>
+        </div>
+        
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>
