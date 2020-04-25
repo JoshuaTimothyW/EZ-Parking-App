@@ -1,0 +1,24 @@
+.btn-rounded{
+    border-radius:40px;
+}
+
+.bg-purple{
+    background-color:#8A2BE2;
+}
+
+.bg-badge{
+    background-color: red;
+}
+
+.bg-style1{
+    background-image: url("../img/style1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    /* background-size: cover; */
+}
+
+.box{
+    width: 100px;
+    height: 90px;
+}
