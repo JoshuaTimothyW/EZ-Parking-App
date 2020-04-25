@@ -12,8 +12,7 @@ window.addEventListener("load",function(){
         text +=
         `
         <li class="list-group-item my-2">`+datetime+`>
-            <div class="row float-right">
-                <button class="mr-5 btn btn-info" data-toggle="modal" data-target="#top-up" >Top-Up</button>
+            <div class="float-right">
                 <button class="btn btn-success" data-toggle="modal" data-target="#modal-book" >Pay</button>
             </div>    
         </li>
