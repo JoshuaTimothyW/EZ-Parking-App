@@ -67,10 +67,12 @@ window.addEventListener("load",function(){
     
 
     this.document.getElementById("btn-motor").addEventListener("click",function(){
+        document.getElementById("btn-kendaraan").innerHTML = "Parkir Motor";
         document.getElementById("list_motor").className = "row";
         document.getElementById("list_mobil").className = "row d-none";
     })
     this.document.getElementById("btn-mobil").addEventListener("click",function(){
+        document.getElementById("btn-kendaraan").innerHTML = "Parkir Mobil";
         document.getElementById("list_motor").className = "row d-none";
         document.getElementById("list_mobil").className = "row";
     })
