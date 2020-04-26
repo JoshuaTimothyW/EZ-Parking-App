@@ -49,7 +49,7 @@
         List Booking
     </div>
     <div class="justify-content-end row">
-        <p class="text-primary h5 mr-2">Balance: Rp. 135.000</p>
+        <!-- <p class="text-primary h5 mr-2">Balance: Rp. 135.000</p> -->
         <button class="col-sm-2 ml-5 mr-5 btn btn-info" data-toggle="modal" data-target="#top-up" >Top-Up</button>
     </div>
     <br><br>
@@ -59,6 +59,8 @@
     </section>
     
     <!-- Modal -->
+
+    <!-- Modal Topup -->
     <div class="modal fade" id="top-up" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -69,86 +71,84 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                    <form action="listbook.html" method="post" autocomplete="off">
-                        <img src="../assets//img//QR.png" alt="">
-                        <!-- <div class="form-group">
-                            Total Price: 
-                            <div class="text-center h3 text-info">Rp. 10.000</div>    
-                        </div> -->
-                        <br>
-                    </form>
+                    <ul class="list-group">
+                        <li class="list-group-item" id="bca" onclick="return confirm_topup(this)">
+                            <div class="media">
+                                <img src="../assets/img/BCA.png" height="70" width="100" class="mr-3" alt="...">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Bank BCA (Dicek Otomatis)</h5>
+                                    <p class="text-muted">Hanya menerima dari Bank BCA <br> Metode pembayaran lebih mudah</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" id="mandiri" onclick="return confirm_topup(this)">
+                            <div class="media">
+                                <img src="../assets/img/Mandiri.png" height="70" width="100" class="mr-3" alt="...">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Bank Mandiri (Dicek Otomatis)</h5>
+                                    <p class="text-muted">Menerima transfer dari semua Bank termasuk Bank Syariah <br> Metode pembayaran lebih mudah</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" id="bni" onclick="return confirm_topup(this)">
+                            <div class="media">
+                                <img src="../assets/img/BNI.png" height="70" width="100" class="mr-3" alt="...">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Bank BNI (Dicek Otomatis)</h5>
+                                    <p class="text-muted">Hanya menerima dari Bank BNI <br> Metode pembayaran lebih mudah</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" id="bri" onclick="return confirm_topup(this)">
+                            <div class="media">
+                                <img src="../assets/img/BRI.png" height="70" width="100" class="mr-3" alt="...">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Bank BRI (Dicek Otomatis)</h5>
+                                    <p class="text-muted">Hanya menerima dari Bank BRI <br> Metode pembayaran lebih mudah</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-block btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" id="confirm-btn" disabled value="Konfirmasi" class="btn btn-block btn-success" data-toggle="modal" data-target="#modal-payment" data-dismiss="modal">
                 </div>
               </div>
             </div>
         </div>
     
-    <!-- Modal -->
     <!-- Modal Motor -->
-    <div class="modal fade" id="modal-motor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal fade" id="modal-payment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title text-center">Order Form</h5>
+              <h5 class="modal-title text-center">Pembayaran</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
+                <div class="media">
+                    <img src="../assets/img/BCA.png" height="70" width="100" class="mr-3" alt="...">
+                    <div class="media-body">
+                        <h5 class="mt-0">Bank BCA (Dicek Otomatis)</h5>
+                    </div>
+                </div>
                 <form action="listbook.html" method="post" autocomplete="off">
                     <div class="form-group">
-                        <label for="order-id">Order ID</label>
+                        <label for="order-id">No. Virtual Account</label>
                         <strong id="order-id">
-                            <input type="text" class="form-control" name="kendaraan" id="kendaraan" value="87ecc236-919b-4183-a382-4f569923950f" readonly>
+                            <input type="text" class="form-control" name="kendaraan" id="kendaraan" value="122 08118880814" >
                         </strong>
                     </div>
-
                     <div class="form-group">
-                        <label for="time-in">Time In</label>
-                        <strong id="time-in">
-                            <input type="text" class="form-control" name="kendaraan" id="motor-in" readonly>
-                        </strong>
-                    </div> 
-
-                    <div class="form-group">
-                        <label for="time-out">Time Out</label>
-                        <strong id="time-out">
-                            <input type="text" class="form-control" name="kendaraan" id="motor-out" readonly>
-                        </strong>
-                    </div> 
-
-                    <div class="form-group">
-                        <label for="kendaraan">Kendaraan</label>
-                        <input type="text" class="form-control" name="kendaraan" id="kendaraan" value="Motor" readonly>    
+                        <label class="text-success">Dicek dalam 10 menit setelah pembayaran berhasil</label>
+                        <label class="text-muted" >Hanya menerima dari Bank BCA</label>
                     </div>
-
-                    <div class="form-group">
-                        <label for="floor">Floor</label>
-                        <input type="text" class="form-control" name="floor" id="floor" value="1" readonly>    
-                    </div>
-
-                    <div class="form-group">
-                        <label for="slot">Slot</label>
-                        <input type="text" class="form-control" name="slot" id="slot" value="2" readonly>    
-                    </div>
-
-    
-                    <div class="form-group">
-                        <label for="plat">License Plate</label>
-                        <input type="text" placeholder="License Plate" class="form-control" name="plat" value="B6073WJF" id="plat" readonly>    
-                    </div>
-
-                    <div class="form-group">
-                        <label for="plat">Fees</label>
-                        <input type="text" placeholder="License Plate" class="form-control" name="plat" value="Rp. 10.000" id="plat" readonly>    
-                    </div>
-    
-                    <div class="text-center">                
-                        <button class="btn btn-lg btn-primary" onclick="return alert('Success');">Submit Payment</button>
-                    </div>   
                 </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-block btn-warning text-light" data-dismiss="modal">OK</button>
             </div>
           </div>
         </div>
@@ -188,8 +188,8 @@
                         </div> 
     
                         <div class="form-group">
-                            <label for="kendaraan">Kendaraan</label>
-                            <input type="text" class="form-control" name="kendaraan" id="kendaraan" value="Mobil" readonly>    
+                            <label for="kendaraan">Location</label>
+                            <input type="text" class="form-control" name="kendaraan" id="kendaraan" value="Central Park" readonly>    
                         </div>
     
                         <div class="form-group">
@@ -229,5 +229,16 @@
         <p class="text-muted">Copyright © 2020 Ez-Park. All rights reserved. </p>
     </div>
 </footer>
+
 <script src="../assets/js/frontend/listbook.js"></script>
+<script>
+    function confirm_topup(e){
+        // console.log($(e).hasClass("list-group-item"));
+        $(".list-group-item").removeClass("bg-light")
+        $(e).addClass("bg-light")
+        // document.getElementById(this).className += "border-5 border-primary"
+        document.getElementById("confirm-btn").removeAttribute("disabled");
+    }
+</script>
+
 </html>

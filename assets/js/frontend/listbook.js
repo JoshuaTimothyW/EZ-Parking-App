@@ -10,17 +10,7 @@ window.addEventListener("load",function(){
     
 
     for(let i=0;i<5;i++){
-        if(i%2 == 0){
-            text +=
-            `
-            <li class="list-group-item my-2"> <strong class="text-primary">Order No. `+(i+1)+`</strong><br><br><strong class="text-primary">`+datetime+`</strong>>
-                <div class="float-right">
-                    <button class="btn btn-success" data-toggle="modal" data-target="#modal-motor" >Pay</button>
-                </div>    
-            </li>
-            `
-        }else{
-            text +=
+        text +=
             `
             <li class="list-group-item my-2"> <strong class="text-primary">Order No. `+(i+1)+`</strong><br><br><strong class="text-primary">`+datetime+`</strong>>
                 <div class="float-right">
@@ -28,13 +18,13 @@ window.addEventListener("load",function(){
                 </div>    
             </li>
             `
-        }
         
     }
     
+
     this.document.getElementById("list_booking").innerHTML = text;
-    this.document.getElementById("motor-out").value = currentdate.getHours()+ ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
-    this.document.getElementById("motor-in").value = currentdate.getHours()-5+ ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+    // this.document.getElementById("motor-out").value = currentdate.getHours()+ ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+    // this.document.getElementById("motor-in").value = currentdate.getHours()-5+ ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
     
     this.document.getElementById("mobil-out").value = currentdate.getHours()+ ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
     this.document.getElementById("mobil-in").value = currentdate.getHours()-5+ ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
