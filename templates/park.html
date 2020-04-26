@@ -44,25 +44,37 @@
     
     
     <nav aria-label="Page navigation example">
-        <select name="kendaraan" class="col-sm-6 form-control form-control-lg">
-            <option selected>Parkir Motor</option>
-            <option>Parkir Mobil</option>
-        </select>    
-        <ul class="pagination justify-content-center my-3">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
+        
+        <div class="dropdown text-center my-5">
+            <button id="btn-kendaraan" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Kendaraan
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button id="btn-motor" class="dropdown-item" type="button">Motor</button>
+              <div class="dropdown-divider"></div>
+              <button id="btn-mobil" class="dropdown-item" type="button">Mobil</button>
+            </div>
+        </div>
+         
     </nav>
     
+    <!-- Content -->
     <div class="container">
-            <div class="row" id="list_slot"></div>
+            <div class="row d-none" id="list_motor"></div>
+            <div class="row d-none" id="list_mobil"></div>
     </div>
+
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center my-5">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
     
-    <!-- Modal -->
-    <div class="modal fade" id="modal-book" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <!-- Modal Motor -->
+    <div class="modal fade" id="modal-motor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -76,13 +88,8 @@
 
                     <div class="form-group">
                         <label for="kendaraan">Kendaraan</label>
-                        <select name="kendaraan" class="form-control form-control-lg">
-                            <option selected>Motor - Rp. 2.000 / Jam</option>
-                            <option>Mobil - Rp. 3.000 / Jam</option>
-                        </select>        
+                        <input type="text" class="form-control" name="kendaraan" id="kendaraan" value="Motor - Rp. 2.000 / Jam" readonly>    
                     </div>
-
-                    <input type="hidden" id="location" name="location" value="">
 
                     <div class="form-group">
                         <label for="floor">Floor</label>
@@ -108,6 +115,53 @@
           </div>
         </div>
     </div>
+
+    <!-- Modal Mobil -->
+    <div class="modal fade" id="modal-mobil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center">Booking Form</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form action="listbook.html" method="post" autocomplete="off">
+
+                    <div class="form-group">
+                        <label for="kendaraan">Kendaraan</label>
+                        <input type="text" class="form-control" name="kendaraan" id="kendaraan" value="Mobil - Rp. 3.000 / Jam" readonly>    
+                    </div>
+
+                    <div class="form-group">
+                        <label for="floor">Floor</label>
+                        <input type="text" class="form-control" name="floor" id="floor" value="1" readonly>    
+                    </div>
+
+                    <div class="form-group">
+                        <label for="slot">Slot</label>
+                        <input type="text" class="form-control" name="slot" id="slot" value="5" readonly>    
+                    </div>
+
+    
+                    <div class="form-group">
+                        <label for="plat">License Plate</label>
+                        <input type="text" placeholder="License Plate" class="form-control" name="plat" value="B1602FAT" id="plat">    
+                    </div>
+    
+                    <div class="text-center">                
+                        <button class="btn btn-lg btn-primary" onclick="return alert('Success');">Submit</button>
+                    </div>   
+                </form>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
+
 </body>
 
 <footer>
