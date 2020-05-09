@@ -29,12 +29,10 @@
                 <li class="nav-item">
                     <div class="dropdown">
                         <a class="bg-dark text-light nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Welcome, Joshua
+                            Welcome, User
                         </a>
                         
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item text-primary" href="#">Edit Profile</a>
-                            <br>
                             <a class="bg-danger text-white text-center nav-link" href="../index.html" id="sign-out">Sign Out</a>
                         </div>
                     </div>
@@ -72,7 +70,7 @@
                 </div>
                 <div class="modal-body">
                     <ul class="list-group">
-                        <li class="list-group-item" id="bca" onclick="return confirm_topup(this)">
+                        <li class="list-group-item" id="BCA" onclick="return confirm_topup(this)">
                             <div class="media">
                                 <img src="../assets/img/BCA.png" height="70" width="100" class="mr-3" alt="...">
                                 <div class="media-body">
@@ -81,7 +79,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="list-group-item" id="mandiri" onclick="return confirm_topup(this)">
+                        <li class="list-group-item" id="Mandiri" onclick="return confirm_topup(this)">
                             <div class="media">
                                 <img src="../assets/img/Mandiri.png" height="70" width="100" class="mr-3" alt="...">
                                 <div class="media-body">
@@ -90,7 +88,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="list-group-item" id="bni" onclick="return confirm_topup(this)">
+                        <li class="list-group-item" id="BNI" onclick="return confirm_topup(this)">
                             <div class="media">
                                 <img src="../assets/img/BNI.png" height="70" width="100" class="mr-3" alt="...">
                                 <div class="media-body">
@@ -99,7 +97,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="list-group-item" id="bri" onclick="return confirm_topup(this)">
+                        <li class="list-group-item" id="BRI" onclick="return confirm_topup(this)">
                             <div class="media">
                                 <img src="../assets/img/BRI.png" height="70" width="100" class="mr-3" alt="...">
                                 <div class="media-body">
@@ -117,7 +115,7 @@
             </div>
         </div>
     
-    <!-- Modal Motor -->
+    <!-- Modal Confirm -->
     <div class="modal fade" id="modal-payment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -128,7 +126,7 @@
               </button>
             </div>
             <div class="modal-body">
-                <div class="media">
+                <div id="media-confirm" class="media" id="media">
                     <img src="../assets/img/BCA.png" height="70" width="100" class="mr-3" alt="...">
                     <div class="media-body">
                         <h5 class="mt-0">Bank BCA (Dicek Otomatis)</h5>
@@ -143,7 +141,7 @@
                     </div>
                     <div class="form-group">
                         <label class="text-success">Dicek dalam 10 menit setelah pembayaran berhasil</label>
-                        <label class="text-muted" >Hanya menerima dari Bank BCA</label>
+                        <label id="lbl-confirm" class="text-muted" >Hanya menerima dari Bank BCA</label>
                     </div>
                 </form>
             </div>
@@ -210,7 +208,7 @@
     
                         <div class="form-group">
                             <label for="plat">Fees</label>
-                            <input type="text" placeholder="License Plate" class="form-control" name="plat" value="Rp. 15.000" id="plat" readonly>    
+                            <input type="text" placeholder="License Plate" class="form-control" name="plat" value="Rp. 5.000" id="plat" readonly>    
                         </div>
         
                         <div class="text-center">                
@@ -237,7 +235,17 @@
         $(e).addClass("bg-light")
         // document.getElementById(this).className += "border-5 border-primary"
         document.getElementById("confirm-btn").removeAttribute("disabled");
+
+        document.getElementById("media-confirm").innerHTML = 
+        `   <img src="../assets/img/`+e.id+`.png" height="70" width="100" class="mr-3" alt="`+e.id+`">
+            <div class="media-body">
+                <h5 class="mt-0">Bank `+e.id+` (Dicek Otomatis)</h5>
+            </div>
+        `;
+        
+        document.getElementById("lbl-confirm").innerHTML = "Hanya menerima dari Bank "+e.id;
     }
+
 </script>
 
 </html>

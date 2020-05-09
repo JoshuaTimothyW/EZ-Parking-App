@@ -35,7 +35,7 @@ window.addEventListener("load",function(){
                 document.getElementById("list_valet").innerHTML += 
                 `
                 <div class="col-lg-2">
-                    <button id="parking-slot" class="box rounded bg-success border text-center text-white h3" data-toggle="modal" data-target="#modal-motor">
+                    <button id="parking-slot" class="box rounded bg-success border text-center text-white h3" data-toggle="modal" data-target="#modal-valet">
                         `
                         +(i+1)+
                         `
@@ -60,7 +60,7 @@ window.addEventListener("load",function(){
             document.getElementById("list_parking").innerHTML += 
             `
             <div class="col-lg-2">
-                <button id="parking-slot" class="box rounded bg-success border text-center text-white h3" data-toggle="modal" data-target="#modal-mobil">
+                <button id="parking-slot" class="box rounded bg-success border text-center text-white h3" data-toggle="modal" data-target="#modal-park">
                     `
                     +(i+1)+
                     `
