@@ -1,6 +1,6 @@
-# EZ-Parking-App
+# MyPark-App
 
-EZParking App gives you service to find and book to nearby parking location.
+MyPark App gives you service to find and book to nearby parking location.
 
 This project still in progress
 
